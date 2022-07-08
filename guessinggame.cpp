@@ -7,7 +7,7 @@ int main (){
     cout << "* Welcome to the guessing game *" << endl;
     cout << "********************************" << endl;
 
-    int secret_number = 42;
+    const int SECRET_NUMBER = 42;
     int choice;
 
     cout << "What's your choice?";
@@ -15,10 +15,13 @@ int main (){
 
     cout << "The value of your choice is: " << choice << endl;
 
-    if(choice == secret_number) {
+    bool correct_value = choice == SECRET_NUMBER;
+    bool more_than_value = choice > SECRET_NUMBER;
+
+    if(correct_value) {
         cout << "Congrats! You choice a correct number!" << endl;
     }
-    else if(choice > secret_number) {
+    else if(more_than_value) {
         cout << "Your choice is more than secret number!" << endl;
     }
     else {
