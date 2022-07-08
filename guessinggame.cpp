@@ -12,6 +12,8 @@ int main (){
     bool not_guessed = true;
     int attempts = 0;
 
+    double score = 1000.0;
+
     while(not_guessed) {
         attempts++;
         int choice;
@@ -19,6 +21,9 @@ int main (){
         cout << "attempt " << attempts << endl;
         cout << "What's your choice?";
         cin >> choice;
+
+        double decrease_score = abs(choice - SECRET_NUMBER) / 2.0;
+        score = score - decrease_score;
 
         cout << "The value of your choice is: " << choice << endl;
 
@@ -38,4 +43,7 @@ int main (){
     }
     cout << "end game!" << endl;
     cout << "You guessed it in " << attempts << " attempts" << endl;
+    cout.precision(2);
+    cout << fixed;
+    cout << "Your score is " << score << endl;
 }
