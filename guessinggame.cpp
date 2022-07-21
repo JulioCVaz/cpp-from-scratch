@@ -1,5 +1,6 @@
 #include<iostream>
-
+#include<cstdlib>
+#include<ctime>
 using namespace std;
 
 int main (){
@@ -24,7 +25,8 @@ int main (){
         attempts = 5;
     }
 
-    const int SECRET_NUMBER = 42;
+    srand(time(NULL));
+    const int SECRET_NUMBER = rand() % 100;
 
     bool not_guessed = true;
     
