@@ -7,15 +7,31 @@ int main (){
     cout << "* Welcome to the guessing game *" << endl;
     cout << "********************************" << endl;
 
+    cout << "Choose the difficulty level" << endl;
+    cout << "easy(E), medium(M) or hard(H)" << endl;
+
+    char difficulty;
+    int attempts = 0;
+
+    cin >> difficulty;
+
+    if (difficulty == 'E') {
+        attempts = 15;
+    }
+    else if (difficulty == 'M') {
+        attempts = 10;
+    } else {
+        attempts = 5;
+    }
+
     const int SECRET_NUMBER = 42;
 
     bool not_guessed = true;
-    int attempts = 0;
+    
 
     double score = 1000.0;
 
-    while(not_guessed) {
-        attempts++;
+    for (int number_of_attempts=0; attempts < number_of_attempts; attempts++) {
         int choice;
 
         cout << "attempt " << attempts << endl;
@@ -33,6 +49,7 @@ int main (){
         if(guessed) {
             cout << "Congrats! You choice an correct number!" << endl;
             not_guessed = false;
+            break;
         }
         else if(more_than_value) {
             cout << "Your choice is more than secret number!" << endl;
@@ -42,8 +59,13 @@ int main (){
         }
     }
     cout << "end game!" << endl;
-    cout << "You guessed it in " << attempts << " attempts" << endl;
-    cout.precision(2);
-    cout << fixed;
-    cout << "Your score is " << score << endl;
+    if (not_guessed) {
+        cout << "You lose, try again!" << endl;
+    }
+    else {
+        cout << "You guessed it in " << attempts << " attempts" << endl;
+        cout.precision(2);
+        cout << fixed;
+        cout << "Your score is " << score << endl;
+    }
 }
