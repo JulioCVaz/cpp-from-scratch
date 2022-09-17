@@ -5,8 +5,8 @@ using namespace std;
 const string SECRETE_WORD = "WATERMELON";
 
 bool check_if_choice_exists(char choice) {
-    for(int i = 0; i < SECRETE_WORD.size(); i++) {
-        if (choice == SECRETE_WORD[i]){
+    for(char letter : SECRETE_WORD) {
+        if (letter == choice) {
             return true;
         }
     }
